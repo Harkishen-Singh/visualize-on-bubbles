@@ -13,9 +13,7 @@ for(let x =0; x<data.length; x++) {
 }
 console.log(x_lines);
 
-let container = d3.select('body').append('svg')
-                                    .attr('width', 2000)
-                                    .attr('height', 500);
+let container = d3.select('#here').append('svg');
 
 let circles = container.selectAll('circle')
     .data(data)
@@ -30,6 +28,8 @@ circles.attr('cx', function (d) {
     return d.radius;
 }).attr('fill', function (d) {
     return d.color;
+}).attr('id', function (d) {
+    return d.x_axis + '_id';
 });
 
 var line = d3.line().curve(d3.curveCardinal).x(function (a,b) {
@@ -39,4 +39,19 @@ var line = d3.line().curve(d3.curveCardinal).x(function (a,b) {
 });
 
 container.append('path').attr('d', line(data)).attr('stroke', 'black').attr('stroke-width', '2').attr("fill", "none");
+
+// hovercards
+
+for(var obj in data) {
+    let x = document.getElementById(data[obj].x_axis + '_id');
+    console.log(x);
+    let m = document.createElement('span');
+    m.style.width = '50px';
+    m.style.height = '50px';
+    m.style.backgroundColor = 'yellow';
+    m.innerText = 'hiii';
+
+}
+
+// x-axis
 

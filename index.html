@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <title>visualize-on-bubbles</title>
     <script src="d3.v4.js"></script>
+    <style>
+        .outer {
+            max-width: 800px;
+            overflow: scroll;
+            margin-left: 400px;
+        }
+        svg {
+            width: 2000px;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
     <div style="text-align: center;">
         <h3>
             Visualize On Bubbles
         </h3>
+    </div>
+    <div class="outer">
+        <p id="here">
+        </p>
     </div>
     <script src="script.js"></script>
 </body>
